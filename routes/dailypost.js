@@ -1,6 +1,7 @@
 const express = require("express");
 const DailyPosts = require("../Models/dailyPosts");
 const Trivia = require("../Models/trivia");
+const nodemailer = require("nodemailer");
 
 const router = express.Router();
 
@@ -60,5 +61,30 @@ router.delete("/trivia", async (req, res) => {
     console.log(error.message);
   }
 });
+
+// router.post("/mail", (req, res) => {
+//   const data = req.body;
+//   const transporter = nodemailer.createTransport({
+//     service: "gmail",
+//     auth: {
+//       user: "n210368@rguktn.ac.in",
+//       pass: "Yasvanth@2005",
+//     },
+//   });
+//   const mailOptions = {
+//     from: data.email,
+//     to: "n210368@rguktn.ac.in",
+//     text: `Name : ${data.name} \n\n ${data.message}`,
+//   };
+//   transporter.sendMail(mailOptions, (err, info) => {
+//     if (err) {
+//       console.log(err.message);
+//       res.status(500).json({ Error: err.message });
+//     } else {
+//       console.log("Emil Sent : " + info.response);
+//       res.status(200).json({ message: "Success" });
+//     }
+//   });
+// });
 
 module.exports = router;
