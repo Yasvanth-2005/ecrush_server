@@ -3,6 +3,7 @@ const DailyPosts = require("../Models/dailyPosts");
 const Trivia = require("../Models/trivia");
 const nodemailer = require("nodemailer");
 const dotenv = require("dotenv").config();
+const axios = require("axios");
 
 const router = express.Router();
 
@@ -86,6 +87,22 @@ router.post("/mail", (req, res) => {
       res.status(200).json({ message: "Success" });
     }
   });
+});
+
+const news_apikey = process.env.NEWS_API_KEY;
+const apiurl = `https://newsapi.org/v2/top-headlines`;
+const params = {
+  country: "in",
+  apikey: news_apikey,
+};
+
+router.get("/news", (req, res) => {
+  axios
+    .get(apiurl, { params })
+    .then((response) => {
+      res.status(200).json(response.data);
+    })
+    .catch((err) => res.status(500).json({ error: err.message }));
 });
 
 module.exports = router;
