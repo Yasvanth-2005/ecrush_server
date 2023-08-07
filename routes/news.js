@@ -23,7 +23,7 @@ newsRouter.get("/business", (req, res) => {
   const params = {
     country: "in",
     apikey: news_apikey,
-    pageSize: 40,
+    pageSize: 25,
     category: "business",
   };
   axios
@@ -38,7 +38,7 @@ newsRouter.get("/entertainment", (req, res) => {
   const params = {
     country: "in",
     apikey: news_apikey,
-    pageSize: 40,
+    pageSize: 25,
     category: "entertainment",
   };
   axios
@@ -51,8 +51,9 @@ newsRouter.get("/entertainment", (req, res) => {
 
 newsRouter.get("/health", (req, res) => {
   const params = {
+    country: "in",
     apikey: news_apikey,
-    pageSize: 40,
+    pageSize: 25,
     category: "health",
   };
   axios
@@ -65,8 +66,9 @@ newsRouter.get("/health", (req, res) => {
 
 newsRouter.get("/science", (req, res) => {
   const params = {
+    country: "in",
     apikey: news_apikey,
-    pageSize: 40,
+    pageSize: 25,
     category: "science",
   };
   axios
@@ -81,7 +83,7 @@ newsRouter.get("/sports", (req, res) => {
   const params = {
     country: "in",
     apikey: news_apikey,
-    pageSize: 40,
+    pageSize: 25,
     category: "sports",
   };
   axios
@@ -94,8 +96,9 @@ newsRouter.get("/sports", (req, res) => {
 
 newsRouter.get("/technology", (req, res) => {
   const params = {
+    country: "in",
     apikey: news_apikey,
-    pageSize: 40,
+    pageSize: 25,
     category: "technology",
   };
   axios
