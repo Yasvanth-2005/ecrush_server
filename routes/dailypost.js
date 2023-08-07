@@ -89,20 +89,4 @@ router.post("/mail", (req, res) => {
   });
 });
 
-const news_apikey = process.env.NEWS_API_KEY;
-const apiurl = `https://newsapi.org/v2/top-headlines`;
-const params = {
-  country: "in",
-  apikey: news_apikey,
-};
-
-router.get("/news", (req, res) => {
-  axios
-    .get(apiurl, { params })
-    .then((response) => {
-      res.status(200).json(response.data);
-    })
-    .catch((err) => res.status(500).json({ error: err.message }));
-});
-
 module.exports = router;

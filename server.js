@@ -3,6 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const router = require("./routes/dailypost");
+const newsRouter = require("./routes/news");
 const dotenv = require("dotenv");
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(bodyParser.json({ limit: "30mb", extended: false }));
 
 // Routes
 app.use("/api", router);
+app.use("/api/news", newsRouter);
 
 const uri = process.env.CONNECTION_URL;
 mongoose
